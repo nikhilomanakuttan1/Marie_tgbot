@@ -8,11 +8,11 @@ from datetime import datetime
 from typing import Optional, List
 import time
 import requests
-from telegram import Message, Chat, Update, Bot, MessageEntity
+from telegram import Message, Chat, Update, Bot, MessageEntity, Message
 from telegram import ParseMode
-from telegram.ext import CommandHandler, run_async, Filters, Message
+from telegram.ext import CommandHandler, run_async, Filters, MessageHandler
 from telegram.utils.helpers import escape_markdown, mention_html
-from tg_bot import dispatcher
+from tg_bot import dispatcher, LOGGER
 from tg_bot.modules.disable import DisableAbleCommandHandler
 
 def tts(bot: Bot, update: Update, args):
