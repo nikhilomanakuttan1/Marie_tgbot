@@ -2,7 +2,6 @@ future
 emoji
 requests
 sqlalchemy
-covid
 python-telegram-bot==11.1.0
 psycopg2-binary
 feedparser
@@ -14,9 +13,11 @@ PyLyrics
 wget
 gTTS
 #telegram
-zalgo_text
 pynewtonmath
 bs4
 telegraph
 googletrans==3.1.0a0
 tswift
+youtube_dl
+telethon==1.16.4
+pyrogram
