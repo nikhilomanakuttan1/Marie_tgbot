@@ -3,6 +3,13 @@ import json
 import os
 import time
 
+from telegram import Message, Update, Bot, User
+from telegram import MessageEntity
+from telegram.ext import Filters, MessageHandler, run_async
+
+from tg_bot import dispatcher
+from tg_bot.modules.disable import DisableAbleCommandHandler, DisableAbleRegexHandler
+
 from telethon.tl.types import DocumentAttributeAudio
 from youtube_dl import YoutubeDL
 from youtube_dl.utils import (
@@ -270,3 +277,5 @@ __help__ = """
 """
 
 __mod_name__ = "Songs"
+
+dispatcher.add_handler(CommandHandler('songs', song, pass_args=True))
