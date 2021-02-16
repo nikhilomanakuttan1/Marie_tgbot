@@ -4,6 +4,8 @@ import aiohttp
 from pyrogram import filters
 from pytube import YouTube
 from youtubesearchpython import VideosSearch
+from telegram import Message, Chat, Update, Bot, MessageEntity, Message
+from telegram.ext import CommandHandler, run_async, Filters, MessageHandler
 
 from tg_bot import LOGGER, pbot
 from tg_bot.ut import get_arg
@@ -79,10 +81,11 @@ __help__ = """
  *You can either enter just the song name or both the artist and song
   name. *
 
- - /song <songname artist(optional)>: uploads the song in it's best quality available
- - /video <songname artist(optional)>: uploads the video song in it's best quality available
+ - /song <songname artist(optional)>: uploads the song in it's best quality available.
  - /lyrics <song>: returns the lyrics of that song.
 
 """
 
 __mod_name__ = "Music 🎵"
+
+dispatcher.add_handler(CommandHandler('song', song, pass_args=True))
