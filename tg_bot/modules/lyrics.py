@@ -3,7 +3,7 @@
 from tswift import Song
 
 from telegram import Bot, Update, Message, Chat
-from telegram.ext import run_async
+from telegram.ext import run_async, MessageHandler, Filters
 
 from tg_bot import dispatcher
 from tg_bot.modules.disable import DisableAbleCommandHandler
