@@ -29,8 +29,9 @@ def tts(update: Update, context: CallbackContext):
     with open("k.mp3", "rb") as speech:
         update.message.reply_voice(speech, quote=False)
 
+__help__ = """- /tts <text>: convert text to speech.
+"""
+__mod_name__ = "Text To Speech"
 
-__help__ = """
- - /tts <text>: convert text to speech
 
 dispatcher.add_handler(CommandHandler('tts', tts, pass_args=True))
