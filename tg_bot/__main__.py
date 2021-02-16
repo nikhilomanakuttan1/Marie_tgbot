@@ -41,7 +41,7 @@ Hello! my name is *{}*. I am a group management bot, here to help you get around
 
 {}
 
-""".format(dispatcher.bot.first_name, "" if not ALLOW_EXCL else "\nAll commands can either be used with / or !\n")
+""".format(dispatcher.bot.first_name, "" if not ALLOW_EXCL else "All commands can either be used with / or !\n")
 
 DONATE_STRING = """Hey, glad to hear you want to donate for original creator of source code! It took lots of work for [my creator](t.me/SonOfLars) to get me to where I am now, and every donation helps motivate him to make me even better.\n\nHe's just a poor student, so every little helps! There are two ways of paying him: [PayPal](paypal.me/PaulSonOfLars) or [Monzo](monzo.me/paulnionvestergaardlarsen)."""
 
