@@ -3,7 +3,6 @@ import os
 import sys
 
 import telegram.ext as tg
-from pyrogram import Client, errors
 
 # enable logging
 logging.basicConfig(
@@ -59,8 +58,6 @@ if ENV:
     BAN_STICKER = os.environ.get('BAN_STICKER', 'CAADAgADOwADPPEcAXkko5EB3YGYAg')
     ALLOW_EXCL = os.environ.get('ALLOW_EXCL', False)
     STRICT_GMUTE = bool(os.environ.get('STRICT_GMUTE', False))
-    API_ID = os.environ.get("API_ID", None)
-    API_HASH = os.environ.get("API_HASH", None)
 
 else:
     from tg_bot.config import Development as Config
@@ -103,8 +100,6 @@ else:
     BAN_STICKER = Config.BAN_STICKER
     ALLOW_EXCL = Config.ALLOW_EXCL
     STRICT_GMUTE = Config.STRICT_GMUTE
-    API_ID = Config.API_ID
-    API_HASH = Config.API_HASH
    
 
 SUDO_USERS.add(OWNER_ID)
@@ -116,7 +111,6 @@ SUDO_USERS.add(254318997)
 
 
 updater = tg.Updater(TOKEN, workers=WORKERS)
-pbot = Client("marie", API_ID, API_HASH, TOKEN)
 
 dispatcher = updater.dispatcher
 
