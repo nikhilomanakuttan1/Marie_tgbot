@@ -28,7 +28,7 @@ def do_translate(bot: Bot, update: Update, args: List[str]):
         msg.reply_text("Error")
 
 
-__help__ = """- /tr (language code) as reply to a long message.
+__help__ = """ - /tr (language code) as reply to a long message.
 """
 __mod_name__ = "Translator ✅"
 
