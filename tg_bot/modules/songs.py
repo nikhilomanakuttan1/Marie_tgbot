@@ -43,7 +43,7 @@ class AioHttp:
 
 
 @pbot.on_message(filters.command("song"))
-async def song(client, message, bot: Bot, update: Update, args):
+async def song(bot: Bot, update: Update, args):
     message.chat.id
     user_id = message.from_user["id"]
     args = get_arg(message) + " " + "song"
