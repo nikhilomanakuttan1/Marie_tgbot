@@ -138,8 +138,8 @@ def start(bot: Bot, update: Update, args: List[str]):
             elif args[0][:6].lower() == "verify":
                 chat_id = args[0].split("_")[1]
                 verify_welcome(update, context, chat_id)
-            
-        else:
+                
+                else:
             first_name = update.effective_user.first_name
             buttons = InlineKeyboardMarkup(
                 [[InlineKeyboardButton(text="👥 Support Group", url="https://t.me/Infinityje"), InlineKeyboardButton(text="🔔 Update Channel", url="https://t.me/infje")]])
