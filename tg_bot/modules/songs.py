@@ -16,8 +16,8 @@ from youtube_dl.utils import (
     XAttrMetadataError,
 )
 
-from tg_bot.event import register
-from tg_bot.utils import progress
+from tg_bot.events import register
+from tg_bot.progress import progress
 
 try:
 
