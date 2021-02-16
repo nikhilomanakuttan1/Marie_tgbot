@@ -1,7 +1,7 @@
 
 {
-  "name": "Marie-2.0 English",
-  "description": "Telegram's sassiest group manager. Modular Telegram group management bot!",
+  "name": "Marie English",
+  "description": "Telegram's group manager. Modular Telegram group management bot!",
   "keywords": [
     "telegram",
     "best",
@@ -9,23 +9,23 @@
     "manager",
     "3"
   ],
-  "repository": "hhttps://github.com/TGExplore/Marie-2.0-English",
+  "repository": "https://github.com/ImJanindu/Marie",
   "env": {
     "ENV": {
       "description": "Setting this to ANYTHING will enable env variables",
       "value": "ANYTHING"
     },
     "TOKEN": {
-      "description": "Your bot token, as a string.",
+      "description": "Your bot token, as a string",
       "value": ""
     },
     "OWNER_ID": {
       "description": "An integer of consisting of your owner ID",
-      "value": "683538773"
+      "value": ""
     },
     "OWNER_USERNAME": {
-      "description": "Your username",
-      "value": "ViruZs"
+      "description": "Your username without '@'",
+      "value": ""
     },
     "WEBHOOK": {
       "description": "Setting this to ANYTHING will enable webhooks when in env mode messages",
@@ -37,22 +37,22 @@
     },
     "MESSAGE_DUMP": {
       "description": "optional: a chat where your replied saved messages are stored, to stop people deleting their old",
-      "value": "-1007777777777"
+      "value": ""
     },
     "SUDO_USERS": {
-      "description": "A space separated list of user_ids which should be considered sudo users",
-      "value": "254318997 683538773 570400686 466337795"
+      "description": "A space separated list of user ids which should be considered sudo users",
+      "value": ""
     },
     "SUPPORT_USERS": {
-      "description": "A space separated list of user_ids which should be considered support users (can gban/ungban, nothing else)",
-      "value": "254318997 683538773 570400686 466337795"
+      "description": "A space separated list of user ids which should be considered support users (can gban/ungban, nothing else)",
+      "value": ""
     },
     "WHITELIST_USERS": {
-      "description": "A space separated list of user_ids which should be considered whitelisted - they can't be banned.",
-      "value": "254318997 683538773 570400686 466337795"
+      "description": "A space separated list of user ids which should be considered whitelisted - they can't be banned using me",
+      "value": ""
     },
     "DONATION_LINK": {
-      "description": "Optional: link where you would like to receive donations.",
+      "description": "Optional: link where you would like to receive donations",
       "value": "https://www.paypal.me/Your_id_here"
     },
     "PORT": {
@@ -64,16 +64,16 @@
       "value": "True"
     },
     "STRICT_GBAN": {
-      "description": "Enforce gbans across new groups as well as old groups. When a gbanned user talks, he will be banned.",
+      "description": "Enforce gbans across new groups as well as old groups. When a gbanned user talks, he will be banned",
       "value": "True"
     },
     "ALLOW_EXCL": {
-      "description": "Whether to allow using exclamation marks ! for commands as well as /.",
+      "description": "Whether to allow using exclamation marks ! for commands as well as /",
       "value": "True"
     },
     "BAN_STICKER": {
-      "description": "Which sticker to use when banning people. Use https://telegram.dog/ShowJsonBot to get the file_id",
-      "value": "CAADBAAD6AMAAkJ_EQNu_RjOszbmnxYE"
+      "description": "Which sticker to use when banning people. Use @sticker_id_bot to get id of stickers",
+      "value": ""
     }
   },
   "addons": [
