@@ -61,9 +61,9 @@ def reply_afk(bot: Bot, update: Update):
             if sql.is_afk(user_id):
                 user = sql.check_afk_status(user_id)
                 if not user.reason:
-                    res = "{} is away from the keyboard!\n\nReason :\n{} ".format(fst_name)
+                    res = "{} is away from the keyboard!\n\nReason: *{}* ".format(fst_name)
                 else:
-                    res = "{} is away from the keyboard!\n\nReason :\n{} ".format(fst_name, user.reason)
+                    res = "{} is away from the keyboard!\n\nReason: *{}* ".format(fst_name, user.reason)
                 message.reply_text(res)
 
 
