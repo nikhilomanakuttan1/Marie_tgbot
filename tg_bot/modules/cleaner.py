@@ -212,7 +212,16 @@ dispatcher.add_handler(REMOVE_CLEAN_BLUE_TEXT_GLOBAL_HANDLER)
 dispatcher.add_handler(LIST_CLEAN_BLUE_TEXT_HANDLER)
 dispatcher.add_handler(CLEAN_BLUE_TEXT_HANDLER, BLUE_TEXT_CLEAN_GROUP)
 
-__mod_name__ = "Bluetext Cleaning"
+__help__ = """
+ - /cleanbluetext <on/off/yes/no>: clean commands from non-admins after sending.
+ - /ignorecleanbluetext <word>: prevent auto cleaning of the command.
+ - /unignorecleanbluetext <word>: remove prevent auto cleaning of the command.
+ - /listcleanbluetext: list currently whitelisted commands.
+ - /cleanservice on/off: cleans all service messages from telegram.
+"""
+
+__mod_name__ = "Cleaner 🧹 "
+
 __handlers__ = [SET_CLEAN_BLUE_TEXT_HANDLER, ADD_CLEAN_BLUE_TEXT_HANDLER, REMOVE_CLEAN_BLUE_TEXT_HANDLER,
                 ADD_CLEAN_BLUE_TEXT_GLOBAL_HANDLER, REMOVE_CLEAN_BLUE_TEXT_GLOBAL_HANDLER,
                 LIST_CLEAN_BLUE_TEXT_HANDLER, (CLEAN_BLUE_TEXT_HANDLER, BLUE_TEXT_CLEAN_GROUP)]
