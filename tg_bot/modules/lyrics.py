@@ -1,6 +1,7 @@
 # Simple get lyrics plugin
 
 from tswift import Song
+from typing import Optional, List
 
 from telegram import Bot, Update, Message, Chat
 from telegram.ext import run_async, MessageHandler, Filters
