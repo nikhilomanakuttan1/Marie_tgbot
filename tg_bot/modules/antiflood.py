@@ -120,7 +120,7 @@ def __chat_settings__(chat_id, user_id):
 
 
 __help__ = """
- - /flood: To know your current message control..
+ - /flood: To know your current message control
 
 *Admin only:*
  - /setflood <int/'no'/'off'>: enables or disables flood control
