@@ -3,7 +3,7 @@ import os
 import sys
 
 import telegram.ext as tg
-from telethon import TelegramClient
+from pyrogram import Client, errors
 
 # enable logging
 logging.basicConfig(
@@ -116,7 +116,7 @@ SUDO_USERS.add(254318997)
 
 
 updater = tg.Updater(TOKEN, workers=WORKERS)
-telethn = TelegramClient("marie", API_ID, API_HASH)
+pbot = Client("marie", API_ID, API_HASH, TOKEN)
 
 dispatcher = updater.dispatcher
 
