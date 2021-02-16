@@ -134,7 +134,7 @@ def start(bot: Bot, update: Update, args: List[str]):
             buttons = InlineKeyboardMarkup(
                 [
                 [InlineKeyboardButton(text="Support Group", url="https://t.me/Infinityje"), InlineKeyboardButton(text="Update Channel", url="https://t.me/infje")]])
-            update.effective_message.reply_text(PM_START_TEXT.format(escape_markdown(first_name), escape_markdown(bot.first_name), OWNER_ID), reply_markup=InlineKeyboardMarkup(keyboard), parse_mode=ParseMode.MARKDOWN)
+            update.effective_message.reply_text(PM_START_TEXT.format(escape_markdown(first_name), escape_markdown(bot.first_name), OWNER_ID), disable_web_page_preview=True, reply_markup=InlineKeyboardMarkup(buttons), parse_mode=ParseMode.MARKDOWN)
     else:
         update.effective_message.reply_text("Waked up 😏")
 
