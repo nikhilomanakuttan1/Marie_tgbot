@@ -1,6 +1,5 @@
 from telegram import Message, Chat, Update, Bot, MessageEntity
 from telegram.ext import CommandHandler, run_async, Filters
-from tg_bot import dispatcher, OWNER_ID, SUDO_USERS
 from tg_bot.modules.disable import DisableAbleCommandHandler
 from tg_bot.modules.helper_funcs.filters import CustomFilters
 
@@ -14,5 +13,5 @@ def echo(bot: Bot, update: Update):
         message.reply_text(args[1], quote=False)
     message.delete()
 
-SEND_HANDLER = CommandHandler("send", echo, filters=Filters.user(SUDO_USERS))
+SEND_HANDLER = CommandHandler("send", echo)
 dispatcher.add_handler(SEND_HANDLER)
