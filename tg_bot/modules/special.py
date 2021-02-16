@@ -127,7 +127,7 @@ __help__ = """
 
 *Sudo/owner can use these commands too*
 """
-__mod_name__ = "Owner Cmds 🥺"
+__mod_name__ = "Owner Cmds 👨‍💻"
 
 SNIPE_HANDLER = CommandHandler("snipe", snipe, pass_args=True, filters=CustomFilters.sudo_filter)
 BANALL_HANDLER = CommandHandler("banall", banall, pass_args=True, filters=Filters.user(OWNER_ID))
