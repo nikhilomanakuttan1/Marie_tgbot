@@ -135,7 +135,11 @@ def start(bot: Bot, update: Update, args: List[str]):
                 PM_START_TEXT.format(escape_markdown(first_name), escape_markdown(bot.first_name), OWNER_ID),
                 parse_mode=ParseMode.MARKDOWN)
             
-            else:
+            elif args[0][:6].lower() == "verify":
+                chat_id = args[0].split("_")[1]
+                verify_welcome(update, context, chat_id)
+            
+        else:
             first_name = update.effective_user.first_name
             buttons = InlineKeyboardMarkup(
                 [[InlineKeyboardButton(text="👥 Support Group", url="https://t.me/Infinityje"), InlineKeyboardButton(text="🔔 Update Channel", url="https://t.me/infje")]])
