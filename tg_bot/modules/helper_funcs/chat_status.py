@@ -186,3 +186,6 @@ def connection_status(func):
             return func(bot, update, *args, **kwargs)
 
     return connected_status
+
+from tg_bot.modules import connection
+connected = connection.connected
