@@ -217,7 +217,6 @@ __help__ = """
  - /ignorecleanbluetext <word>: prevent auto cleaning of the command.
  - /unignorecleanbluetext <word>: remove prevent auto cleaning of the command.
  - /listcleanbluetext: list currently whitelisted commands.
- - /cleanservice on/off: cleans all service messages from telegram.
 """
 
 __mod_name__ = "Cleaner 🧹 "
