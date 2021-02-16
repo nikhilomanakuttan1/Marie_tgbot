@@ -425,7 +425,7 @@ __help__ = """
  - /getsticker: reply to a sticker and get that sticker as .png and image. 
 """
 
-__mod_name__ = "More 🧩"
+__mod_name__ = "More Tools 🧩"
 
 ID_HANDLER = DisableAbleCommandHandler("id", get_id, pass_args=True)
 IP_HANDLER = CommandHandler("ip", get_bot_ip, filters=Filters.chat(OWNER_ID))
