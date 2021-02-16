@@ -22,7 +22,7 @@ Hi {}, my name is *{}!*
 
 I am a group manager bot maintained by [this person](tg://user?id={}). Made by *@Infinity_BOTs.*
 
-This is my creator's [Github Profile](https://github.com/ImJanindu), you can follow him 🥺
+This is my creator's [Github Profile](https://github.com/ImJanindu), you can follow him.
 
 Hit /help to find out more about how to use me to my full potential.
 """
