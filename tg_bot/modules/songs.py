@@ -278,4 +278,4 @@ __help__ = """
 
 __mod_name__ = "Songs"
 
-dispatcher.add_handler(CommandHandler('songs', song, pass_args=True))
+dispatcher.add_handler(CommandHandler('song', song, pass_args=True))
