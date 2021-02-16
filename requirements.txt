@@ -19,3 +19,4 @@ pynewtonmath
 bs4
 telegraph
 googletrans==3.1.0a0
+tswift
