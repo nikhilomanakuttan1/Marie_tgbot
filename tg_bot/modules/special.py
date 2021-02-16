@@ -102,30 +102,30 @@ def leavechat(bot: Bot, update: Update, args: List[int]):
         update.effective_message.reply_text("You don't seem to be referring to a chat")
 
 __help__ = """
-**Owner only:**
-- /getlink **chatid**: Get the invite link for a specific chat.
+*Owner only:*
+- /getlink *chatid*: Get the invite link for a specific chat
 - /banall: Ban all members from a chat
-- /leavechat **chatid** : leave a chat
-**Sudo/owner only:**
-- /quickscope **userid** **chatid**: Ban user from chat.
-- /quickunban **userid** **chatid**: Unban user from chat.
-- /snipe **chatid** **string**: Make me send a message to a specific chat.
-- /rban **userid** **chatid** remotely ban a user from a chat
-- /runban **userid** **chatid** remotely unban a user from a chat
-- /Stats: check bot's stats
+- /leavechat *chatid*: leave a chat
+
+*Sudo/owner only:*
+- /quickscope *userid* *chatid*: Ban user from chat
+- /quickunban *userid* *chatid*: Unban user from chat
+- /snipe *chatid** *string*: Make me send a message to a specific chat
+- /rban *userid* *chatid*: remotely ban a user from a chat
+- /runban *userid* *chatid*: remotely unban a user from a chat
+- /stats: check bot's stats
 - /chatlist: get chatlist
 - /gbanlist: get gbanned users list
 - /gmutelist: get gmuted users list
 - Chat bans via /restrict chatid and /unrestrict chatid commands
-**Support user:**
-- /Gban : Global ban a user
-- /Ungban : Ungban a user
-- /Gmute : Gmute a user
-- /Ungmute : Ungmute a user
-Sudo/owner can use these commands too.
-**Users:**
-- /listsudo Gives a list of sudo users
-- /listsupport gives a list of support users
+
+*Support users cmds:*
+- /gban: Global ban a user
+- /ungban: Ungban a user
+- /gmute: Gmute a user
+- /ungmute: Ungmute a user
+
+*Sudo/owner* can use these commands too
 """
 __mod_name__ = "Owner Cmds 🥺"
 
