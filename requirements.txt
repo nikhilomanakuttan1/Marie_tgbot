@@ -19,4 +19,7 @@ telegraph
 googletrans==3.1.0a0
 tswift
 youtube_dl
-telethon==1.16.4
+aiohttp>=2.2.5
+pyrogram>=1.0.7
+youtube-search-python
+pytube
