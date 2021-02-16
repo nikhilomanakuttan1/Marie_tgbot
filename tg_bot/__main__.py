@@ -22,7 +22,7 @@ Hi {}, my name is *{}!*
 
 I am a group manager bot maintained by [this person](tg://user?id={}). Made by *@Infinity_BOTs.*
 
-This is my [Deploy Code](https://www.heroku.com/deploy?template=https://github.com/ImJanindu/Marie), you can create clone same like me.
+This is my [Github Profile](https://github.com/ImJanindu), you can follow me 🥺
 
 Hit /help to find out more about how to use me to my full potential.
 """
@@ -43,7 +43,7 @@ Hello! my name is *{}*. I am a group management bot, here to help you get around
 
 """.format(dispatcher.bot.first_name, "" if not ALLOW_EXCL else "All commands can either be used with / or !\n")
 
-DONATE_STRING = """Hey, glad to hear you want to donate for original creator of source code! It took lots of work for [my creator](t.me/SonOfLars) to get me to where I am now, and every donation helps motivate him to make me even better.\n\nHe's just a poor student, so every little helps! There are two ways of paying him: [PayPal](paypal.me/PaulSonOfLars) or [Monzo](monzo.me/paulnionvestergaardlarsen)."""
+DONATE_STRING = """Hey, glad to hear you want to donate for the developer! It took lots of work for [my creator](t.me/ImJanindu) to get me to where I am now, and every donation helps motivate him to make me even better.\nHe's just a poor student, so every little helps!"""
 
 IMPORTED = {}
 MIGRATEABLE = []
