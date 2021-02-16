@@ -7,7 +7,7 @@ from youtubesearchpython import VideosSearch
 from telegram import Message, Chat, Update, Bot, MessageEntity, Message
 from telegram.ext import CommandHandler, run_async, Filters, MessageHandler
 
-from tg_bot import LOGGER, pbot
+from tg_bot import LOGGER, pbot, dispatcher
 from tg_bot.ut import get_arg
 
 
