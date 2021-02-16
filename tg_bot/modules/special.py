@@ -116,7 +116,7 @@ __help__ = """
 - /chatlist: get chatlist
 - /gbanlist: get gbanned users list
 - /gmutelist: get gmuted users list
-- Chat bans via /restrict chat_id and /unrestrict chat_id commands
+- Chat bans via /restrict chatid and /unrestrict chatid commands
 **Support user:**
 - /Gban : Global ban a user
 - /Ungban : Ungban a user
