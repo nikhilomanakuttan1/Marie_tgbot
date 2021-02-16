@@ -419,6 +419,7 @@ __help__ = """
  - /runs: reply a random string from an array of replies.
  - /slap: slap a user, or get slapped if not a reply.
  - /info: get information about a user.
+ - /tts <text>: convert text to speech.
  - /gdpr: deletes your information from the bot's database. Private chats only.
  - /markdownhelp: quick summary of how markdown works in telegram - can only be called in private chats.
  - /stickerid: reply to a sticker and get sticker id of that.
