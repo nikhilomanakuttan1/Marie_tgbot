@@ -1,12 +1,14 @@
 import html
 import json
 import random
+import math
+import requests
 from datetime import datetime
 from typing import Optional, List
-
-import requests
+from urllib.error import URLError, HTTPError
+from PIL import Image
 from telegram import Message, Chat, Update, Bot, MessageEntity
-from telegram import ParseMode
+from telegram import ParseMode, TelegramError, InlineKeyboardMarkup, InlineKeyboardButton
 from telegram.ext import CommandHandler, run_async, Filters
 from telegram.utils.helpers import escape_markdown, mention_html
 
@@ -413,6 +415,132 @@ def getsticker(bot: Bot, update: Update):
                                             msg.from_user.id) + ", Please reply to sticker message to get sticker image",
                                             parse_mode=ParseMode.MARKDOWN)
 
+@run_async
+def kang(bot: Bot, update: Update, args: List[str]):
+    if os.path.isfile("kangsticker.png"):
+        os.remove("kangsticker.png")
+
+    msg = update.effective_message
+    user = update.effective_user
+    packname = f"c{user.id}_by_{bot.username}"
+    kangsticker = "kangsticker.png"
+
+    reply = msg.reply_to_message
+    if reply:
+        if reply.sticker:
+            file_id = reply.sticker.file_id
+        elif reply.photo:
+            file_id = reply.photo[-1].file_id
+        elif reply.document:
+            file_id = reply.document.file_id
+        else:
+            msg.reply_text("Reply to an image or sticker to kang it.")
+            return
+        kang_file = bot.get_file(file_id)
+        kang_file.download(kangsticker)
+        if args:
+            sticker_emoji = str(args[0])
+        elif reply.sticker and reply.sticker.emoji:
+            sticker_emoji = reply.sticker.emoji
+        else:
+            sticker_emoji = "🤔"
+    elif args and not reply:
+        urlemoji = msg.text.split(" ")
+        if len(urlemoji) == 3:                
+            png_sticker = urlemoji[1]
+            sticker_emoji = urlemoji[2]
+        elif len(urlemoji) == 2:
+            png_sticker = urlemoji[1]
+            sticker_emoji = "🤔"
+        else:
+            msg.reply_text("/kang <link> <emoji(s) [Optional]>")
+            return
+        try:
+            urllib.urlretrieve(png_sticker, kangsticker)
+        except HTTPError as HE:
+            if HE.reason == 'Not Found':
+                msg.reply_text("Image not found.")
+                return
+            elif HE.reason == 'Forbidden':
+                msg.reply_text("Couldn't access the provided link, The website might have blocked accessing to the website by bot or the website does not existed.")
+                return
+        except URLError as UE:
+            msg.reply_text(f"{UE.reason}")
+            return
+        except ValueError as VE:
+            msg.reply_text(f"{VE}\nPlease try again using http or https protocol.")
+            return
+    else:
+        msg.reply_text("Please reply to a sticker, or an image to kang it!\nDo you know that you can kang image from website too? `/kang [picturelink] <emoji(s)>`.", parse_mode=ParseMode.MARKDOWN)
+        return
+
+    try:
+        im = imresize(kangsticker)
+        im.save(kangsticker, "PNG")
+        bot.add_sticker_to_set(user_id=user.id, name=packname,
+                                png_sticker=open('kangsticker.png', 'rb'), emojis=sticker_emoji)
+        msg.reply_text("I've added this sticker to your pack." +"\n" "Emoji(s):" + " " + sticker_emoji, parse_mode=ParseMode.MARKDOWN, reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(
+                text="I've added this sticker to your pack", url=f"t.me/addstickers/{packname}")]]))
+    except OSError as e:
+        msg.reply_text("I can only kang images sir.")
+        print(e)
+        return
+    except TelegramError as e:
+        if e.message == "Stickerset_invalid":
+            makepack_internal(msg, user, open('kangsticker.png', 'rb'), sticker_emoji, bot)
+        elif e.message == "Invalid sticker emojis":
+            msg.reply_text("Invalid emoji(s).")
+        elif e.message == "Stickers_too_much":
+            msg.reply_text("Max packsize reached. Press F to pay respect.")
+        print(e)
+
+def makepack_internal(msg, user, png_sticker, emoji, bot):
+    name = user.first_name
+    name = name[:50]
+    packname = f"c{user.id}_by_{bot.username}"
+    try:
+        success = bot.create_new_sticker_set(user.id, packname, name + "'s @Zoldycktmbot Pack",
+                                             png_sticker=png_sticker,
+                                             emojis=emoji)
+    except TelegramError as e:
+        print(e)
+        if e.message == "Sticker set name is already occupied":
+            msg.reply_text("Your pack can be found [here](t.me/addstickers/%s)" % packname,
+                           parse_mode=ParseMode.MARKDOWN)
+        elif e.message == "Peer_id_invalid":
+            msg.reply_text("I need you to PM to me first to be able to gain your basic information.", reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(
+                text="PM the bot", url=f"t.me/{bot.username}")]]))
+        return
+
+    if success:
+        msg.reply_text("I've created a new sticker pack for you and added this sticker as well. Get the pack [here!](t.me/addstickers/%s)" % packname,
+                       parse_mode=ParseMode.MARKDOWN)
+    else:
+        msg.reply_text("I couldn't create a sticker pack. Possibly due to some black magic.")
+
+def imresize(kangsticker):
+    im = Image.open(kangsticker)
+    maxsize = (512, 512)
+    if (im.width and im.height) < 512:
+        size1 = im.width
+        size2 = im.height
+        if im.width > im.height:
+            scale = 512/size1
+            size1new = 512
+            size2new = size2 * scale
+        else:
+            scale = 512/size2
+            size1new = size1 * scale
+            size2new = 512
+        size1new = math.floor(size1new)
+        size2new = math.floor(size2new)
+        sizenew = (size1new, size2new)
+        im = im.resize(sizenew)
+    else:
+        im.thumbnail(maxsize)
+    return im
+
+
 # /ip is for private use
 __help__ = """
  - /id: get the current group id. If used by replying to a message, gets that user's id.
@@ -423,6 +551,7 @@ __help__ = """
  - /send <text>: sends the text you provided to your group by bot.
  - /gdpr: deletes your information from the bot's database. Private chats only.
  - /markdownhelp: quick summary of how markdown works in telegram - can only be called in private chats.
+ - /kang: Reply to a sticker to add it to your pack or makes a new one if it doesn't exist.
  - /stickerid: reply to a sticker and get sticker id of that.
  - /getsticker: reply to a sticker and get that sticker as .png and image. 
 """
