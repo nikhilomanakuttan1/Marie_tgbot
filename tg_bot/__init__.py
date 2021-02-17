@@ -2,7 +2,6 @@ import logging
 import os
 import sys
 import time
-from datetime import datetime
 
 import telegram.ext as tg
 
@@ -60,7 +59,6 @@ if ENV:
     BAN_STICKER = os.environ.get('BAN_STICKER', 'CAADAgADOwADPPEcAXkko5EB3YGYAg')
     ALLOW_EXCL = os.environ.get('ALLOW_EXCL', False)
     STRICT_GMUTE = bool(os.environ.get('STRICT_GMUTE', False))
-    AI_API_KEY = os.environ.get('AI_API_KEY', '61a59c94b42c9b703b091fd419860eb118504bf6918534ed3b9a5fca50411f7534389749bb8cbeeb3ab7906c2703f52fe81fc02949fe8893b67c9c88e3fa76d3')
 
 else:
     from tg_bot.config import Development as Config
